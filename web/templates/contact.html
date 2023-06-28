@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto|Open+Sans:200,300,400,700,800,900&amp;subset=latin" rel="preload" as="font" />
+<link rel="stylesheet" href="{{ url_for('static', filename='home1.css') }}">
+<title>MRS | CONTACT</title>
+<style>
+body{background:#24282f;margin:0 ; padding: 0;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+} 
+.form{width:340px;height:440px;background:#e6e6e6;border-radius:8px;box-shadow:0 0 40px -10px #000;margin:calc(50vh - 220px) auto;padding:20px 30px;max-width:calc(100vw - 40px);box-sizing:border-box;font-family:'Montserrat',sans-serif;position:relative}
+h2{margin:10px 0;padding-bottom:10px;width:180px;color:#78788c;border-bottom:3px solid #78788c}
+input{width:100%;padding:10px;box-sizing:border-box;background:none;outline:none;resize:none;border:0;font-family:'Montserrat',sans-serif;transition:all .3s;border-bottom:2px solid #bebed2}
+input:focus{border-bottom:2px solid #78788c}
+p:before{content:attr(type);display:block;margin:28px 0 0;font-size:14px;color:#5a5a5a}
+button{float:right;padding:8px 12px;margin:8px 0 0;font-family:'Montserrat',sans-serif;border:2px solid #78788c;background:0;color:#5a5a6e;cursor:pointer;transition:all .3s}
+button:hover{background:#78788c;color:#fff}
+div{content:'Hi';position:absolute;bottom:-15px;right:-20px;background:#50505a;color:#fff;width:320px;padding:16px 4px 16px 0;border-radius:6px;font-size:13px;box-shadow:10px 10px 40px -14px #000}
+span{margin:0 5px 0 15px}
+</style>
+</head>
+<body>
+
+
+<ul>
+    <li class="li"><a class="active" href="{{url_for('index')}}" style="text-decoration: none;">Movie Recommendation System</a></li>
+    <!-- <li class="li"><a href="{{url_for('index')}}">Home</a></li> -->
+    <li class="li"><a href="{{url_for('all')}}">All movies</a></li>
+    <li class="li"><a href="/contact">Contact</a></li>
+    <li class="li"><a href="/about">About</a></li>
+    {% if session["uname"] %}
+        <li class="li"><a href="/history">History</a></li>
+        <a style="float: right;"><pre>     </pre></a>
+        <a href="{{url_for('logout')}}" style="float: right; margin-top: 0.8rem; margin-left: 1rem;"><img src="{{url_for('static',filename='logout.png')}}" alt="Error in loading image" style="height: 2rem; width:2rem;"></a>
+        <a style="float: right;"><pre>          </pre></a>
+        <p style="color: white; display: inline; float: right; margin-top: 0.8rem; margin-left: 1rem;">{{ session["uname"] }}</p>
+        <img src="{{url_for('static',filename='login.png')}}" alt="Error in loading image" style="height: 3.5rem; width:3.5rem; float: right;">
+        
+        <!-- <a href="{{url_for('logout')}}" style="padding-left: 5px;">logout</a>. -->
+        
+    {% else %}
+        <li class="logbtn"><a href="/login" style="float: right; background-color: #FF5733; padding: 3px 10px; margin: 10px; text-decoration: none; ">Login</a></li>
+        <li class="logbtn"><a href="/register" style="float: right; background-color: #FF5733; padding: 3px 10px; margin: 10px; text-decoration: none;">Register</a></li>
+    {% endif %}
+</ul>
+
+
+
+<form class="form" >
+  <h2>CONTACT US</h2>
+  <p type="Name:"><input placeholder="Write your name here.."></input></p>
+  <p type="Email:"><input placeholder="Let us know how to contact you back.."></input></p>
+  <p type="Message:"><input placeholder="What would you like to tell us.."></input></p>
+  <button>Send Message</button>
+  <div>
+    <span class="fa fa-phone"></span>001 1023 567
+    <span class="fa fa-envelope-o"></span> contact@company.com
+  </div>
+</form>
+
+</body>
+</html>

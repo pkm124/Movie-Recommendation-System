@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="login-wrapper">
+      <form class="form" action="{{url_for('login')}}" method="post">
+        <h2>Login</h2>
+        <div class="input-group">
+          <input type="text" name="uname" id="loginUser" required />
+          <label for="uname">User Name</label>
+        </div>
+        <div class="input-group">
+          <input type="password" name="psw" id="loginPassword" required />
+          <label for="psw">Password</label>
+        </div>
+        <input type="submit" value="Sign in" class="submit-btn" style="margin-bottom: 20px;"/>
+        Don't have an account yet? <a href="{{url_for('register')}}" style="color:coral "> Sign Up</a>
+      </form>
+    </div>
+  </body>
+</html>

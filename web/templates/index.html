@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+{% if session["uname"] and recc %}
+<h2 style="color: white;"><strong>Recommended Movies for You</strong></h2>
+<div class="wrapper" style="padding-left: 7rem;">
+
+	<div class="cards">
+	
+		{% for i in recc %}
+		<figure class="card">
+	
+			<a href="{{i[2]}}" target="_blank"><img src="{{i[1]}}"/></a>
+	
+			<figcaption>{{i[0]}}</figcaption>
+	
+		</figure>
+		{% endfor %}
+	</div>
+</div>
+{% else %}
+{% endif %}
+
+
+{% if session["uname"] and recc %}
+<h2 style="color: white;"><strong>Previously Watched Movies</strong></h2>
+<div class="wrapper" style="padding-left: 7rem;">
+
+	<div class="cards">
+	
+		{% for i in excel_mov %}
+		<figure class="card">
+	
+			<a href="{{i[2]}}" target="_blank"><img src="{{i[1]}}"/></a>
+	
+			<figcaption>{{i[0]}}</figcaption>
+	
+		</figure>
+		{% endfor %}
+	</div>
+</div>
+
+{% else %}
+{% endif %}
+	
+
+<h2 style="color: white;"><strong>Trending Movies</strong></h2>
+<div class="wrapper" style="padding-left: 7rem;">
+
+	<div class="cards">
+	
+		{% for i in all_mov_list %}
+		<figure class="card">
+	
+			<a href="{{i[2]}}" target="_blank"><img src="{{i[1]}}"/></a>
+	
+			<figcaption>{{i[0]}}</figcaption>
+	
+		</figure>
+		{% endfor %}
+	</div>
+</div>
+	
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+<script>
+$(document).ready(function(){
+    $('.search_select_box select').selectpicker();
+})
+</script>
+
+{% endblock %}
